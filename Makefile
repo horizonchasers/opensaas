@@ -37,7 +37,7 @@ prestart:
 	fi
 
 start-frontend:
-	cd frontend && concurrently "npm run start" "node index";\
+	cd frontend && npm start \
 
 start-backend:
 	concurrently "npm run start-config-service" "npm run start-metrics-service" "sleep 5 && npm run start-api-gw"

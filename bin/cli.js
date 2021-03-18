@@ -23,12 +23,13 @@ function getCommandAndArgs(argv) {
     if (COMMANDS.includes(args[0])) {
         return { command: args[0], args: args.slice(1) };
     }
-    const { name, clientId, apiKey } = argv;
+    const { name, clientId, apiKey, host } = argv;
     return {
         command: 'init',
         args: {
             clientId,
             apiKey,
+            host,
             name: name || args[0],
         },
     };

@@ -12,6 +12,7 @@ type ArgsObject = {
   name?: string;
   apiKey?: string;
   clientId?: string;
+  host?: string;
 };
 
 const REQUIRED_COMMANDS = ['git', 'make'];
@@ -46,8 +47,20 @@ function download(uri, filename, callback) {
   });
 }
 
+async function replaceHost(projectName, host) {
+  const file = `${projectName}/frontend/src/withFrontegg.tsx`;
+
+  if (fs.existsSync(file)) {
+    const data = fs.readFileSync(file, { encoding: 'utf8', flag: 'r' });
+    fs.writeFileSync(
+      file,
+      data.replace(/http:\/\/localhost:8080/g, host),
+    );
+  }
+}
+
 export async function initRepo(args: ArgsObject): Promise<void> {
-  const { name, clientId, apiKey } = args;
+  const { name, clientId, apiKey, host } = args;
   let projectName = name || '';
   while (!projectName.length) {
     const response = await prompts({
@@ -72,16 +85,23 @@ export async function initRepo(args: ArgsObject): Promise<void> {
     console.log,
   );
 
-  if (clientId && apiKey) {
+  if (clientId) {
     await longCommand(`echo #Don't include this file in the source control >> ${projectName}/frontend/.env`, '');
     await longCommand(`echo FRONTEGG_CLIENT_ID=${clientId} >> ${projectName}/frontend/.env`, '');
-    await longCommand(`echo FRONTEGG_API_KEY=${apiKey} >> ${projectName}/frontend/.env`, '');
 
     download(
       `https://assets.frontegg.com/public-vendor-assets/${clientId}/assets/logo.png`,
       `${projectName}/frontend/public/images/logo.png`,
       () => console.log('done downloading logo'),
     );
+
+    if (apiKey) {
+      await longCommand(`echo FRONTEGG_API_KEY=${apiKey} >> ${projectName}/frontend/.env`, '');
+    }
+  }
+
+  if (host) {
+    await replaceHost(projectName, host);
   }
 
   await longCommand(
