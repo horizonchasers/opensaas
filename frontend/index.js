@@ -10,8 +10,8 @@ const bodyParser = require('body-parser');
 
 const buildFolder = 'build';
 const port = process.env.PORT || 8080;
-const clientId = process.env.FRONTEGG_CLIENT_ID || 'c5611c6e-67de-4728-97ad-ae059eb0fb6f';
-const apiKey = process.env.FRONTEGG_API_KEY || '7481afef-7070-4778-9bad-a902c1168b65';
+const clientId = 'c5611c6e-67de-4728-97ad-ae059eb0fb6f';
+const apiKey = '7481afef-7070-4778-9bad-a902c1168b65';
 
 app.use(express.static(path.join(__dirname, buildFolder)));
 
