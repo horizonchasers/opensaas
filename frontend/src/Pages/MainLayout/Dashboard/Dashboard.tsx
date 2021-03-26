@@ -12,6 +12,10 @@ import { Table } from '../../../Components/Table';
 import moment from 'moment';
 import { detect } from 'detect-browser';
 import { Icon } from '../../../Components/Icon';
+import * as FlexmonsterReact from 'react-flexmonster';
+import 'flexmonster/lib/flexmonster.highcharts.js';
+import Highcharts from 'highcharts';
+
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -283,7 +287,14 @@ class Dashboard extends React.Component<any> {
             <Activities {...item} key={index} />
           ))}
         </Widget>
+        <FlexmonsterReact.Pivot 
+         toolbar={false}
+         componentFolder="https://cdn.flexmonster.com/"
+         width="100%"
+         report="https://cdn.flexmonster.com/reports/report.json"
+        />
       </div>
+      
     );
   }
 }

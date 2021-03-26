@@ -19,6 +19,10 @@ export const routes: TObjectRoute = {
     path: '/hello',
     label: 'Hello World',
   },
+  amcharts: {
+    path: '/amcharts',
+    label: 'Amcharts Demo',
+  },
   services: {
     path: '/services',
     label: 'Services',

@@ -67,7 +67,7 @@ pieSeries.hiddenState.properties.opacity = 1;
 pieSeries.hiddenState.properties.endAngle = -90;
 pieSeries.hiddenState.properties.startAngle = -90;
 
-class Hello extends React.Component<any> {
+class Amcharts extends React.Component<any> {
 
   private pivotRef: React.RefObject<FlexmonsterReact.Pivot> = React.createRef<FlexmonsterReact.Pivot>();
   private flexmonster!: Flexmonster.Pivot;
@@ -195,4 +195,4 @@ class Hello extends React.Component<any> {
 }
 }
 
-export default Hello;
+export default Amcharts;

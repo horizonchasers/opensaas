@@ -15,6 +15,7 @@ const Menu = (
       'services',
       'anomalies',
       'hello',
+      'amcharts',
       'administration',
       'profile',
       'team',
