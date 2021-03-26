@@ -55,6 +55,7 @@
     "lerna": "^3.22.1",
     "log-update": "^4.0.0",
     "ora": "^5.1.0",
+    "postcss": "^8.2.8",
     "prompts": "^2.4.0",
     "request": "^2.88.2",
     "shelljs": "^0.8.4",
