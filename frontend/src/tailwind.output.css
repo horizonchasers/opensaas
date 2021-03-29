@@ -687,6 +687,10 @@ img,
   display: table;
 }
 
+.grid {
+  display: grid;
+}
+
 .flex-row {
   flex-direction: row;
 }

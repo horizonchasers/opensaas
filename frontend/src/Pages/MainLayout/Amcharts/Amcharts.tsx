@@ -180,8 +180,8 @@ class Amcharts extends React.Component<any> {
               ref={this.pivotRef} 
               toolbar={true} 
               width="100%" 
-              report="https://cdn.flexmonster.com/reports/report.json" 
-              licenseFilePath="https://cdn.flexmonster.com/jsfiddle.charts.key"
+              report="https://cdn.flexmonster.com/reports/report.json"
+              licenseKey="Z70F-XF9236-0F084L-0C5K41-0X091C-4V1F4G-4D1864-5D715B-3O2100-533501-6T"
               reportcomplete={this.reportComplete}
               //licenseKey="XXXX-XXXX-XXXX-XXXX-XXXX"
           />
